@@ -1,13 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>CC Lab Portfolio 2025 — Shihan Sun</title>
-</head>
-<body>
-  <h1>CC Lab Portfolio 2025</h1>
-  <p>Shihan Sun</p>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lost and Found</title>
 
-  <p><a href="./projects/lost-and-found/index.html">Open Lost and Found</a></p>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+    }
+    canvas {
+      display: block;
+      margin: 50px auto;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 加载 p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+
+  <!-- 这是你的 p5 sketch -->
+  <script>
+    function setup() {
+      createCanvas(600, 400);   // ←←← 就在这里！！
+      background(30);
+
+      fill(220);
+      textAlign(CENTER, CENTER);
+      textSize(32);
+      text("Lost and Found", width / 2, height / 2);
+    }
+
+    function draw() {
+      // 暂时留空
+    }
+  </script>
+
 </body>
 </html>
