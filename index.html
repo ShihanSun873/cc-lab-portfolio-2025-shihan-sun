@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CC Lab Portfolio 2025 — Shihan Sun</title>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #0a0810; color: #eee; font-family: system-ui, -apple-system, Arial; }
+    a { color: #eee; text-decoration: none; }
+    .wrap { width: min(1100px, 92vw); margin: 28px auto 60px; }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 22px; }
+    .brand { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 14px; }
+    .nav a { margin-left: 10px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; color: rgba(255,255,255,.75); }
+    .nav a:hover { color:#fff; border-color: rgba(255,255,255,.28); }
+
+    .hero { border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(255,255,255,.06); padding: 18px; }
+    h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.15; }
+    .sub { margin: 0 0 18px; color: rgba(255,255,255,.7); line-height: 1.6; max-width: 70ch; }
+
+    .actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding: 10px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.88); }
+    .btn:hover { border-color: rgba(255,255,255,.28); color:#fff; }
+    .btnPrimary { background: linear-gradient(90deg, rgba(107,44,255,.45), rgba(209,27,90,.32)); }
+
+    .cards { margin-top: 16px; display:grid; grid-template-columns: 1fr; gap: 14px; }
+    .card { border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(255,255,255,.06); padding: 14px; }
+    .card h2 { margin: 0 0 8px; font-size: 16px; }
+    .card p { margin: 0; color: rgba(255,255,255,.7); line-height: 1.55; }
+
+    .foot { margin-top: 18px; color: rgba(255,255,255,.55); font-size: 13px; }
+    @media (min-width: 900px){
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">CC Lab Portfolio 2025 — Shihan Sun</div>
+      <div class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="https://github.com/ShihanSun873" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Creative Coding Lab Portfolio</h1>
+      <p class="sub">
+        This site presents seven p5.js projects for CC Lab 2025, including generative systems, interaction,
+        time-based experiments, data-driven visuals, and a small autobiographical game.
+      </p>
+
+      <div class="actions">
+        <a class="btn btnPrimary" href="./projects.html">View Projects</a>
+        <a class="btn" href="https://github.com/ShihanSun873" target="_blank" rel="noreferrer">GitHub Profile</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h2>What’s inside</h2>
+        <p>Lost and Found, Face Generator, Experimental Clock, Exquisite Corpse, Optical Illusion, Data Portrait, Autobiographical Game.</p>
+      </div>
+      <div class="card">
+        <h2>Tech</h2>
+        <p>p5.js, GitHub Pages, and a simple embedded gallery for fast review.</p>
+      </div>
+      <div class="card">
+        <h2>Navigation</h2>
+        <p>Use “View Projects” to see all sketches in one page, each with an “Open” button.</p>
+      </div>
+    </section>
+
+    <div class="foot">© 2025 Shihan Sun</div>
+  </div>
+</body>
+</html>
