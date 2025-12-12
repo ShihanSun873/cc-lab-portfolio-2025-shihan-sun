@@ -1,4 +1,4 @@
-const MP3_FILENAME = "fire_bird.mp3";
+const MP3_FILENAME = "./fire_bird.mp3";
 
 let entries = [
   { label: "10/16\nRAISE A SUILEN\n(1h44m)", time: 104, artist: "raise a suilen" },
@@ -20,7 +20,11 @@ const PIE_DIAM = 700;
 const LABEL_R = 250;
 
 function preload() {
-  song = loadSound(MP3_FILENAME);
+  song = loadSound(
+    MP3_FILENAME,
+    () => console.log("audio loaded"),
+    (e) => console.log("audio failed", e)
+  );
 }
 
 function setup() {
@@ -34,22 +38,21 @@ function setup() {
   amp = new p5.Amplitude();
   amp.smooth(0.75);
   amp.setInput(song);
-  song.setLoop(true);
 
-//button
+  // ▶️ DOM button（iframe 安全位置）
   playBtn = createButton("Play Music");
-  playBtn.position(16, height - 44);
+  playBtn.position(16, 16);
   playBtn.style("font-size", "16px");
   playBtn.mousePressed(toggleMusic);
 }
 
 function toggleMusic() {
-  userStartAudio();
+  userStartAudio(); // ⭐ 必须
   if (song.isPlaying()) {
     song.pause();
     playBtn.html("Play Music");
   } else {
-    song.play();
+    song.loop();
     playBtn.html("Stop Music");
   }
 }
@@ -58,13 +61,14 @@ function draw() {
   background(240);
   translate(width / 2, height / 2);
 
-//music respond
-  let rawLevel = (song && (song.isPlaying() || song.isPaused())) ? amp.getLevel() : 0;
+  // 音频未播放也照样画（不黑）
+  let rawLevel = song && song.isPlaying() ? amp.getLevel() : 0;
 
   maxLevel = max(maxLevel * 0.995, rawLevel);
-  let normalized = constrain(rawLevel / maxLevel, 0, 1);
+  let normalized = maxLevel > 0 ? constrain(rawLevel / maxLevel, 0, 1) : 0;
   smoothed = lerp(smoothed, normalized, 0.25);
 
+  // halo
   let haloDiam = PIE_DIAM + map(smoothed, 0, 1, 30, 220, true);
   noFill();
   stroke(0, 180);
@@ -72,7 +76,7 @@ function draw() {
   ellipse(0, 0, haloDiam, haloDiam);
   noStroke();
 
-//chart
+  // pie chart
   let total = entries.reduce((s, e) => s + e.time, 0);
   let lastAngle = 0;
 
@@ -84,7 +88,7 @@ function draw() {
     if (a === "raise a suilen")      c = color(0, 255, 205);
     else if (a === "roselia")        c = color(0, 0, 255);
     else if (a === "nakashima yuki") c = color(60, 200, 255);
-    else if (a === "yorushika")      c = color(255, 255, 255);
+    else if (a === "yorushika")      c = color(255);
     else                             c = color(200);
 
     fill(c);
@@ -94,7 +98,6 @@ function draw() {
     let x = cos(mid) * LABEL_R;
     let y = sin(mid) * LABEL_R;
 
-//text
     fill(0);
     push();
     translate(x, y);
@@ -103,5 +106,13 @@ function draw() {
     pop();
 
     lastAngle += angle;
+  }
+
+  // 提示文字
+  if (!song.isPlaying()) {
+    resetMatrix();
+    fill(0);
+    textSize(16);
+    text("Click 'Play Music' to start audio", width / 2, height - 30);
   }
 }
