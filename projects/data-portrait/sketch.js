@@ -1,4 +1,4 @@
-const MP3_FILENAME = "fire bird.mp3";
+const MP3_FILENAME = "fire_bird.mp3";
 
 let entries = [
   { label: "10/16\nRAISE A SUILEN\n(1h44m)", time: 104, artist: "raise a suilen" },
