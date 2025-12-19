@@ -6,26 +6,189 @@
   <title>Projects — CC Lab Portfolio 2025</title>
 
   <style>
-    html, body { margin: 0; padding: 0; background: #0a0810; color: #eee; font-family: system-ui, -apple-system, Arial; }
-    a { color: #eee; text-decoration: none; }
-    .wrap { width: min(1100px, 92vw); margin: 28px auto 60px; }
-    .top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 18px; }
-    .brand { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 14px; }
-    .nav a { margin-left: 10px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; color: rgba(255,255,255,.75); }
-    .nav a:hover { color:#fff; border-color: rgba(255,255,255,.28); }
-    h1 { margin: 0 0 6px; font-size: 28px; }
-    .sub { margin: 0 0 18px; color: rgba(255,255,255,.7); line-height: 1.5; }
+    :root{
+      --bg:#0a0810;
+      --ink:#eee;
+      --muted:rgba(255,255,255,.65);
+      --glass:rgba(255,255,255,.05);
+      --border:rgba(255,255,255,.14);
+      --border2:rgba(255,255,255,.24);
+      --purple:#6b2cff;
+      --crimson:#8b1e3f;
+      --shadow: 0 16px 48px rgba(0,0,0,.45);
+    }
 
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .card { border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(255,255,255,.06); overflow: hidden; }
-    .cardHead { padding: 14px 14px 10px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
-    .cardHead h2 { margin: 0; font-size: 18px; }
-    .btn { display:inline-block; padding: 8px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.85); }
-    .btn:hover { border-color: rgba(255,255,255,.28); color:#fff; }
-    iframe { width: 100%; height: 420px; border: 0; display:block; background:#000; }
-    .foot { margin-top: 18px; color: rgba(255,255,255,.55); font-size: 13px; }
-    @media (min-width: 900px){
-      iframe { height: 380px; }
+    *{ box-sizing:border-box; }
+    html,body{
+      margin:0; padding:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, Arial, sans-serif;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      width:min(1180px, 92vw);
+      margin: 28px auto 72px;
+    }
+
+    /* Top nav */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .brand{
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .nav a{
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+    .nav a:hover{
+      color:#fff;
+      border-color: var(--border2);
+    }
+
+    /* Stage header */
+    .stage{
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px 18px;
+      background:
+        radial-gradient(700px 240px at 18% 10%, rgba(107,44,255,.24), transparent 60%),
+        radial-gradient(680px 240px at 84% 26%, rgba(139,30,63,.22), transparent 60%),
+        var(--glass);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .stage:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        linear-gradient(90deg, rgba(107,44,255,.18), rgba(139,30,63,.14));
+      filter: blur(26px);
+      opacity: .55;
+      pointer-events:none;
+    }
+    .stageInner{ position:relative; z-index:1; }
+    h1{
+      margin:0 0 8px;
+      font-size: 28px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 85ch;
+    }
+
+    /* Grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 16px;
+    }
+    @media (min-width: 980px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Cards */
+    .card{
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--glass);
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+    }
+    .cardHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(420px 160px at 20% 10%, rgba(107,44,255,.14), transparent 60%),
+        radial-gradient(420px 160px at 80% 30%, rgba(139,30,63,.12), transparent 60%),
+        rgba(255,255,255,.03);
+    }
+    .titleBlock h2{
+      margin:0 0 6px;
+      font-size: 16px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .meta{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.88);
+      white-space: nowrap;
+    }
+    .btn:hover{ border-color: var(--border2); color:#fff; }
+
+    /* Description area */
+    .desc{
+      padding: 12px 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .descLabel{
+      display:inline-block;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 6px;
+    }
+    .descText{
+      margin:0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.65;
+      font-size: 13px;
+    }
+
+    /* Preview */
+    iframe{
+      width:100%;
+      height: 360px;
+      border:0;
+      display:block;
+      background:#000;
+    }
+    @media (min-width: 980px){
+      iframe{ height: 340px; }
+    }
+
+    .foot{
+      margin-top: 20px;
+      text-align:center;
+      color: rgba(255,255,255,.5);
+      font-size: 13px;
     }
   </style>
 </head>
@@ -41,63 +204,140 @@
       </div>
     </div>
 
-    <h1>Projects</h1>
-    <p class="sub">Seven p5.js projects. Click “Open” to view each one in its own page.</p>
+    <section class="stage">
+      <div class="stageInner">
+        <h1>Projects</h1>
+        <p class="sub">
+          Seven p5.js projects presented as a stage-like gallery. Each card includes a short description and a live preview.
+          Use “Open” to view the sketch in its own page.
+        </p>
+      </div>
+    </section>
 
     <div class="grid">
 
+      <!-- 1 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Lost and Found</h2>
+          <div class="titleBlock">
+            <h2>Lost and Found</h2>
+            <p class="meta">p5.js · scene / narrative sketch</p>
+          </div>
           <a class="btn" href="./projects/lost-and-found/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A small environment-driven scene exploring how objects and space can suggest memory, absence, and discovery.
+          </p>
         </div>
         <iframe src="./projects/lost-and-found/" title="Lost and Found" loading="lazy"></iframe>
       </div>
 
+      <!-- 2 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Face Generator</h2>
+          <div class="titleBlock">
+            <h2>Face Generator</h2>
+            <p class="meta">p5.js · generative portrait</p>
+          </div>
           <a class="btn" href="./projects/face-generator/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A parameter-based face system that generates variation through controlled randomness, balancing consistency and surprise.
+          </p>
         </div>
         <iframe src="./projects/face-generator/" title="Face Generator" loading="lazy"></iframe>
       </div>
 
+      <!-- 3 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Experimental Clock</h2>
+          <div class="titleBlock">
+            <h2>Experimental Clock</h2>
+            <p class="meta">p5.js · time / perception</p>
+          </div>
           <a class="btn" href="./projects/experimental-clock/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A time experiment that rethinks “clock behavior” through non-standard motion and rhythm, turning time into a visual performance.
+          </p>
         </div>
         <iframe src="./projects/experimental-clock/" title="Experimental Clock" loading="lazy"></iframe>
       </div>
 
+      <!-- 4 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Exquisite Corpse</h2>
+          <div class="titleBlock">
+            <h2>Exquisite Corpse</h2>
+            <p class="meta">p5.js · collaborative translation</p>
+          </div>
           <a class="btn" href="./projects/exquisite-corpse/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A coded interpretation of a collaborative surrealist drawing. Each section reflects constraints, handoff, and unexpected outcomes.
+          </p>
         </div>
         <iframe src="./projects/exquisite-corpse/" title="Exquisite Corpse" loading="lazy"></iframe>
       </div>
 
+      <!-- 5 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Optical Illusion</h2>
+          <div class="titleBlock">
+            <h2>Optical Illusion</h2>
+            <p class="meta">p5.js · pattern / visual tension</p>
+          </div>
           <a class="btn" href="./projects/optical-illusion/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A pattern system designed to create motion-like effects and perceptual instability through repetition, spacing, and contrast.
+          </p>
         </div>
         <iframe src="./projects/optical-illusion/" title="Optical Illusion" loading="lazy"></iframe>
       </div>
 
+      <!-- 6 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Data Portrait</h2>
+          <div class="titleBlock">
+            <h2>Data Portrait</h2>
+            <p class="meta">p5.js · data as identity</p>
+          </div>
           <a class="btn" href="./projects/data-portrait/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A personal data-driven visualization that turns everyday activity into a readable “portrait” through composition and color logic.
+          </p>
         </div>
         <iframe src="./projects/data-portrait/" title="Data Portrait" loading="lazy"></iframe>
       </div>
 
+      <!-- 7 -->
       <div class="card">
         <div class="cardHead">
-          <h2>Autobiographical Game</h2>
+          <div class="titleBlock">
+            <h2>Autobiographical Game</h2>
+            <p class="meta">p5.js · rhythm game / narrative</p>
+          </div>
           <a class="btn" href="./projects/autobiographical-game/" target="_blank" rel="noreferrer">Open</a>
+        </div>
+        <div class="desc">
+          <div class="descLabel">Description</div>
+          <p class="descText">
+            A rhythm-based mini game inspired by personal gaming habits and dreams of being a hero, translated into timing, feedback, and flow.
+          </p>
         </div>
         <iframe src="./projects/autobiographical-game/" title="Autobiographical Game" loading="lazy"></iframe>
       </div>
