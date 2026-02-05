@@ -7,7 +7,9 @@ let dragStartY = 0;
 let dragStartProgress = 0;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+const c = createCanvas(windowWidth, windowHeight);
+c.parent('stage');
+c.style('z-index', '1');
   textFont('Cinzel');
   textAlign(CENTER, CENTER);
   noStroke();
