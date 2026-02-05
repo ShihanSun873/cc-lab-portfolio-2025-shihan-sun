@@ -17,9 +17,15 @@ html, body { height: 100%; margin: 0; background: radial-gradient(1200px 800px a
 body { overflow: hidden; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); }
 
 #stage { position: relative; width: 100vw; height: 100vh; }
-canvas { display: block; position: absolute; inset: 0; }
+canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 
 #hint{
+  z-index: 3;
   position: absolute;
   left: 50%;
   bottom: 22px;
@@ -38,6 +44,7 @@ canvas { display: block; position: absolute; inset: 0; }
 }
 
 #postcard{
+  z-index: 2;
   position: absolute;
   inset: 0;
   display: grid;
