@@ -1,0 +1,163 @@
+:root{
+  --bg0: #07060b;
+  --bg1: #0e0a18;
+
+  --ink: #e9e6ff;
+  --muted: rgba(233,230,255,0.70);
+  --soft: rgba(233,230,255,0.55);
+
+  --card: rgba(18,14,30,0.86);
+  --card-border: rgba(233,230,255,0.14);
+
+  --line: rgba(233,230,255,0.12);
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; margin: 0; background: radial-gradient(1200px 800px at 50% 20%, var(--bg1), var(--bg0)); }
+body { overflow: hidden; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); }
+
+#stage { position: relative; width: 100vw; height: 100vh; }
+canvas { display: block; position: absolute; inset: 0; }
+
+#hint{
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(8px);
+  user-select: none;
+  pointer-events: none;
+}
+
+#postcard{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+#postcard.show{ opacity: 1; pointer-events: auto; }
+
+.card{
+  width: min(980px, 100%);
+  height: min(520px, 70vh);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 20px 70px rgba(0,0,0,0.55);
+  overflow: hidden;
+}
+
+.card-left{
+  position: relative;
+  border-right: 1px solid var(--line);
+  background:
+    radial-gradient(600px 420px at 30% 30%, rgba(120,90,255,0.20), transparent 60%),
+    radial-gradient(700px 480px at 70% 70%, rgba(60,120,255,0.16), transparent 62%),
+    rgba(0,0,0,0.15);
+}
+
+.stamp{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.12) inset;
+}
+
+.art-note{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.card-right{
+  padding: 26px 26px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name{
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+}
+
+.motto{
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bio{
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 14px;
+}
+.bio p{ margin: 0 0 10px 0; }
+.bio .soft{ color: var(--soft); }
+
+.keywords{
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+
+.actions{ display: flex; gap: 10px; margin-top: 10px; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(233,230,255,0.22);
+}
+.btn.ghost{ background: transparent; color: var(--muted); }
+
+.footer{ margin-top: 8px; font-size: 12px; color: var(--soft); }
