@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Should I Eat for Lunch Today?</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="quizStyle.css" />
+</head>
+
+<body>
+  <main class="quiz-container">
+
+    <h1>What Should I Eat for Lunch Today?</h1>
+    <p class="intro">A highly scientific lunch quiz.</p>
+
+    <!-- QUIZ FORM -->
+    <form id="lunchQuiz">
+
+      <!-- QUESTION 1 -->
+      <section class="question-block">
+        <h2>1. How hungry are you?</h2>
+
+        <label for="hunger">Drag the slider:</label>
+
+        <input
+          type="range"
+          id="hunger"
+          name="hunger"
+          min="1"
+          max="10"
+          value="5"
+        />
+
+        <div class="slider-labels">
+          <span>No appetite</span>
+          <span id="hungerValue">5</span>
+          <span>So hungry I could eat a horse</span>
+        </div>
+      </section>
+
+      <!-- QUESTION 2 -->
+      <section class="question-block">
+        <h2>2. What’s the fit?</h2>
+
+        <div class="options">
+          <label>
+            <input type="radio" name="fit" value="pajamas" required />
+            Pajamas
+          </label>
+
+          <label>
+            <input type="radio" name="fit" value="athleisure" />
+            Athleisure
+          </label>
+
+          <label>
+            <input type="radio" name="fit" value="dolledup" />
+            I’m all dolled up
+          </label>
+
+          <label>
+            <input type="radio" name="fit" value="embarrassed" />
+            I’m embarrassed by my outfit choice tbh
+          </label>
+        </div>
+      </section>
+
+      <!-- QUESTION 3 -->
+      <section class="question-block">
+        <h2>3. Pick an image that describes the vibe of your hunger</h2>
+
+        <div class="image-options">
+
+          <label class="image-card">
+            <input type="radio" name="vibe" value="img1" required />
+            <img src="LunchOptions/Img_1.jpg" alt="Vibe 1" />
+          </label>
+
+          <label class="image-card">
+            <input type="radio" name="vibe" value="img2" />
+            <img src="LunchOptions/Img_2.jpg" alt="Vibe 2" />
+          </label>
+
+          <label class="image-card">
+            <input type="radio" name="vibe" value="img3" />
+            <img src="LunchOptions/Img_3.jpg" alt="Vibe 3" />
+          </label>
+
+          <label class="image-card">
+            <input type="radio" name="vibe" value="img4" />
+            <img src="LunchOptions/Img_4.jpg" alt="Vibe 4" />
+          </label>
+
+        </div>
+      </section>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit">Reveal My Lunch</button>
+
+    </form>
+
+    <!-- RESULT SECTION -->
+    <section id="result" class="result hidden">
+      <h2 id="resultTitle"></h2>
+      <img id="resultImage" src="" alt="" />
+      <p id="resultText"></p>
+
+      <button id="restartBtn" type="button">Take it again</button>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT -->
+  <script src="quizScript.js"></script>
+
+</body>
+</html>
 
